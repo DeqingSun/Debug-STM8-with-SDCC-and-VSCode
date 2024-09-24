@@ -31,8 +31,6 @@ CFLAGS = --debug -mstm8 --std-sdcc99 --out-fmt-elf
 SRC_ALL = main.c
 
 OBJ_ALL = $(SRC_ALL:.c=.rel)
-OBJ_SHARED = $(SRC_SHARED:.c=.rel)
-# $(info OBJ is $(OBJ))
 
 TARGET = stm8_test_debug
 
