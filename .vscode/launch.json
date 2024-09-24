@@ -1,0 +1,43 @@
+//please change the "miDebuggerPath", path of stm8-gdb to your own path
+{
+    "configurations": [
+    {
+        
+        "name": "STM8-gdb",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceRoot}/build/stm8_test_debug.elf",
+        "args": [],
+        "stopAtEntry": true,
+        "cwd": "${workspaceRoot}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "/Users/deqingsun/Desktop/smallApps/tool-stm8binutils-darwin_x86_64-0.230.0/bin/stm8-gdb",
+        "setupCommands": [
+            {
+                "description": "connect to target",
+                "text": "-target-select extended-remote localhost:3333",
+                "ignoreFailures": true
+            },{
+                "description": "load file",
+                "text": "-file-exec-and-symbols ${workspaceRoot}/build/stm8_test_debug.elf",
+            },{
+                "description": "load file into target",
+                "text": "load",
+            },{
+                "description": "set breakpoint at main",
+                "text": "break main",
+            }
+
+        ],
+        "logging": {
+            "moduleLoad": true,
+            "trace": true,
+            "engineLogging": true,
+            "programOutput": true,
+            "exceptions": true
+        },
+    }
+    ],
+}
