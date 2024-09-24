@@ -11,12 +11,10 @@ ifeq ($(detected_OS),Darwin)        # Mac OS X
 	OPENOCD = /Users/deqingsun/Desktop/smallApps/xpack-openocd-0.12.0-4/bin/openocd
 	OPENOCD_SCRIPT = /Users/deqingsun/Desktop/smallApps/xpack-openocd-0.12.0-4/openocd/scripts
 	CLEAR_CMD = find build -type f ! -name '.*' -delete
-	STM8_GDB = /Users/deqingsun/Desktop/smallApps/tool-stm8binutils-darwin_x86_64-0.230.0/bin/stm8-gdb
 endif
 
 ifeq ($(detected_OS),Windows)
     # SDCC path on windows is C:\Program Files (x86)\SDCC\bin
-	SDCC = C:\Program Files (x86)\SDCC\bin\
 	OPENOCD = C:\TEMP\OpenOCD-20240916-0.12.0\bin\openocd.exe
 	OPENOCD_SCRIPT = C:\TEMP\OpenOCD-20240916-0.12.0\share\openocd\scripts
 	FULL_PATH_CC = "C:\Program Files (x86)\SDCC\bin\sdcc"

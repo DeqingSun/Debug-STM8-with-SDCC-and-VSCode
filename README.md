@@ -20,6 +20,38 @@ The binary file of all tools can be found in the "tested "table.
 
 ## how to use this example
 
+First, you shall modify all absolute paths to tools in Makefile and launch.json. These are the path of SDCC, OpenOCD, and STM8_GDB.
+
+Then in a terminal, run ```make openocd``` to run the debug sercer. Keep that terminal open till you wrap up your work. 
+
+In another terminal, run ```make``` to generate the elf file. In VSCode, go to the debug tab and click the green triangle. The code shall break at the main function.
+
+![steps in VSCode](https://raw.githubusercontent.com/DeqingSun/Debug-STM8-with-SDCC-and-VSCode/main/img/debug_step.jpg)
+
+## Troubleshoot
+
+### pre-compiled Mac OS STM8-gdb can not find libmpfr.6.dylib
+
+You need to use brew to install the ancient library:
+
+Arm CPU: ```arch -x86_64 brew install mpfr```. Intel CPU: ```brew install mpfr```
+
+### OpenOCD has issue
+
+Try to use OpenOCD to flash the target first. You may modify the Makefile, remove ```--debug``` and ```--out-fmt-elf``` from the CFLAGS, change elf to hex in ```compile```, uncomment ```openocd_flash``` and use it to see if openocd can flash the hex file successfully.
+
+### STM8-gdb has issue
+
+Keep OpenOCD on, run command like: ```stm8-gdb your_output.elf --directory=YOUR_SOURCE_DIR --tui```
+
+Then
+
+```
+target extended-remote localhost:3333
+load
+break main
+continue
+```
 
 ## Reference
 
