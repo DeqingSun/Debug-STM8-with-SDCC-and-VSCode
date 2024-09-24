@@ -13,7 +13,8 @@
         "environment": [],
         "externalConsole": false,
         "MIMode": "gdb",
-        "miDebuggerPath": "/Users/deqingsun/Desktop/smallApps/tool-stm8binutils-darwin_x86_64-0.230.0/bin/stm8-gdb",
+        //"miDebuggerPath": "/Users/deqingsun/Desktop/smallApps/tool-stm8binutils-darwin_x86_64-0.230.0/bin/stm8-gdb",
+        "miDebuggerPath": "C:\\TEMP\\tool-stm8binutils-windows_amd64-0.230.0\\bin\\stm8-gdb.exe",
         "setupCommands": [
             {
                 "description": "connect to target",
@@ -21,7 +22,8 @@
                 "ignoreFailures": true
             },{
                 "description": "load file",
-                "text": "-file-exec-and-symbols ${workspaceRoot}/build/stm8_test_debug.elf",
+                //"text": "-file-exec-and-symbols ${workspaceRoot}/build/stm8_test_debug.elf",
+                "text": "-file-exec-and-symbols C:\\\\TEMP\\\\Debug-STM8-with-SDCC-and-VSCode\\\\build\\\\stm8_test_debug.elf",
             },{
                 "description": "load file into target",
                 "text": "load",

@@ -18,7 +18,7 @@ ifeq ($(detected_OS),Windows)
 	OPENOCD = C:\TEMP\OpenOCD-20240916-0.12.0\bin\openocd.exe
 	OPENOCD_SCRIPT = C:\TEMP\OpenOCD-20240916-0.12.0\share\openocd\scripts
 	FULL_PATH_CC = "C:\Program Files (x86)\SDCC\bin\sdcc"
-	CLEAR_CMD = for /f "delims=" %%i in ('dir /b /a-d build ^| findstr /v "^."') do del "build\%%i"
+	CLEAR_CMD = Get-ChildItem -Path build -File | Where-Object { $_.Name -notmatch '^\.' } | Remove-Item
 endif
 
 CC = $(FULL_PATH_CC)

@@ -8,7 +8,8 @@ The setup has been tested on:
 
 | Host OS        | VSCode  | SDCC    | OpenOCD | stm8binutils | Debug Probe | Target |
 | --------       | ------- | ------- | ------- | ------- | ------- | ------- |
-| Mac OS 11.7.10 | 1.92.2  | [Snapshot 20240827-14976](https://sdcc.sourceforge.net/snap.php) | [v0.12.0-4](https://github.com/xpack-dev-tools/openocd-xpack/releases) | [0.230.0](https://sourceforge.net/projects/platformio-storage/files/packages/) | [Cheap ST-Link V2 Clone](https://www.adafruit.com/product/2548) | STM8L101F3U6
+| Mac OS 11.7.10 | 1.92.2  | [Snapshot 20240827-14976](https://sdcc.sourceforge.net/snap.php) | [v0.12.0-4](https://github.com/xpack-dev-tools/openocd-xpack/releases) | [0.230.0](https://sourceforge.net/projects/platformio-storage/files/packages/) | [Cheap ST-Link V2 Clone](https://www.adafruit.com/product/2548) | STM8L101F3U6 |
+| Windows 11 | 1.94.0-insider  | [Snapshot 14932](https://sdcc.sourceforge.net/snap.php) | [20240916](https://gnutoolchains.com/arm-eabi/openocd/) | [0.230.0](https://sourceforge.net/projects/platformio-storage/files/packages/) | [Cheap ST-Link V2 Clone](https://www.adafruit.com/product/2548) | STM8L101F3U6 |
 
 ## Introduction
 
@@ -20,7 +21,7 @@ The binary file of all tools can be found in the "tested "table.
 
 ## how to use this example
 
-First, you shall modify all absolute paths to tools in Makefile and launch.json. These are the path of SDCC, OpenOCD, and STM8_GDB.
+First, you shall modify all absolute paths to tools in Makefile and launch.json, also elf path in launch.json. These are the path of SDCC, OpenOCD, and STM8_GDB.
 
 Then in a terminal, run ```make openocd``` to run the debug sercer. Keep that terminal open till you wrap up your work. 
 
@@ -39,6 +40,10 @@ Arm CPU: ```arch -x86_64 brew install mpfr```. Intel CPU: ```brew install mpfr``
 ### OpenOCD has issue
 
 Try to use OpenOCD to flash the target first. You may modify the Makefile, remove ```--debug``` and ```--out-fmt-elf``` from the CFLAGS, change elf to hex in ```compile```, uncomment ```openocd_flash``` and use it to see if openocd can flash the hex file successfully.
+
+### STM8-gdb has "No such file or directory" error when loading elf
+
+It seems STM8-gdb will escape slash after launch.json escape slash. So just do full path with 4 slashes.
 
 ### STM8-gdb has issue
 
